@@ -6,7 +6,8 @@ c) Date of joining (Gregorian calendar)
 d) Semester (short)
 e) CGPA (float)
 
-Whenever a student joins he will be given a new registration number. Registration number is calculated as follows. If year of joining is 2012 and he is the 80th student to join then his registration will be 1280
+Whenever a student joins he will be given a new registration number. Registration number is calculated as follows. 
+If year of joining is 2012 and he is the 80th student to join then his registration will be 1280
 
 Write member functions to do the following:
 
