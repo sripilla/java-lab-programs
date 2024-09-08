@@ -1,5 +1,8 @@
 /*
-Define a class called Customer that holds private fields for a customer ID number, name and credit limit. Include appropriate constructors  to initialise the instance variables of the Customer Class. Write a main() method that declares an array of 5 Customer objects. Prompt the user for values for each Customer, and display all 5 Customer objects.
+Define a class called Customer that holds private fields for a customer ID number, name and credit limit. 
+Include appropriate constructors  to initialise the instance variables of the Customer Class. 
+Write a main() method that declares an array of 5 Customer objects. 
+Prompt the user for values for each Customer, and display all 5 Customer objects.
 */
 import java.util.Scanner;
 
