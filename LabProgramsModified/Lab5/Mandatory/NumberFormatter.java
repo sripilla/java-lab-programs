@@ -1,4 +1,5 @@
-/* Write and execute a java program to convert strings containing numbers into comma-punctuated numbers, with a comma every third digit from the right.
+/* Write and execute a java program to convert strings containing numbers into comma-punctuated numbers, 
+with a comma every third digit from the right.
 eg., Input String: "1234567"
     Output String: "1,234,567" */
 public class NumberFormatter {
