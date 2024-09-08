@@ -1,5 +1,6 @@
 /* 
-Perform the following operations by adding member functions to the program implemented in the above question. (Student1.java) 
+Perform the following operations by adding member functions to the program implemented in the above question. 
+(Student1.java) 
 
 a) Sort the student records with respect to semester and CGPA.
 b) Sort the student record with respect to name.
