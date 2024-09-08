@@ -1,7 +1,10 @@
 /*
-Consider the already defined EMPLOYEE class. Provide a default constructor and parameterised constructor to this class. Also provide a display method. Illustrate all the constructors as well as the display method by defining EMPLOYEE objects.
-
+Consider the already defined EMPLOYEE class. 
+Provide a default constructor and parameterised constructor to this class. 
+Also provide a display method. Illustrate all the constructors as well as the display method 
+by defining EMPLOYEE objects.
 */
+
 // Define the EMPLOYEE class
 class EMPLOYEE {
     // Instance variables to store employee details
