@@ -1,9 +1,11 @@
 /*
 Add the following string processing methods to the class STUDENT:
 
-a) extractInitials(): A method that extracts the initials from the student's name. For example, if the student's name is "John Doe", this methods would transform it to "JD".
+a) extractInitials(): A method that extracts the initials from the student's name. For example,
+if the student's name is "John Doe", this methods would transform it to "JD".
 
-b) removeWhitespace(): A method that removes any whitespace characters from the student's name. For example, if the student's name is "John Doe", this methods would transform it to "JohnDoe".
+b) removeWhitespace(): A method that removes any whitespace characters from the student's name. 
+For example, if the student's name is "John Doe", this methods would transform it to "JohnDoe".
 
 c) List all the student names containing a particular sub string.
 
