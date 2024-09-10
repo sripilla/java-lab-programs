@@ -7,9 +7,6 @@ b) Sort the student record with respect to name.
 
 5. Add member functions to the above code that perform the following operations
 */
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.GregorianCalendar;
 import java.util.Scanner;
 
@@ -52,37 +49,40 @@ class Student2 {
     }
 
     // Method to sort students by semester and CGPA
-    public static void sortBySemesterAndCGPA(ArrayList<Student2> students) {
-        Collections.sort(students, new Comparator<Student2>() {
-            @Override
-            public int compare(Student2 s1, Student2 s2) {
-                // First compare by semester
-                int semesterComparison = Short.compare(s1.semester, s2.semester);
-                if (semesterComparison != 0) {
-                    return semesterComparison;
+    public static void sortBySemesterAndCGPA(Student2[] students) {
+        for (int i = 0; i < students.length - 1; i++) {
+            for (int j = i + 1; j < students.length; j++) {
+                if (students[i].semester > students[j].semester || 
+                    (students[i].semester == students[j].semester && students[i].cgpa < students[j].cgpa)) {
+                    // Swap students[i] and students[j]
+                    Student2 temp = students[i];
+                    students[i] = students[j];
+                    students[j] = temp;
                 }
-                // If semesters are the same, compare by CGPA
-                return Float.compare(s2.cgpa, s1.cgpa);  // Descending order for CGPA
             }
-        });
+        }
     }
 
     // Method to sort students by name
-    public static void sortByName(ArrayList<Student2> students) {
-        Collections.sort(students, new Comparator<Student2>() {
-            @Override
-            public int compare(Student2 s1, Student2 s2) {
-                return s1.fullName.compareToIgnoreCase(s2.fullName);  // Alphabetical order (case insensitive)
+    public static void sortByName(Student2[] students) {
+        for (int i = 0; i < students.length - 1; i++) {
+            for (int j = i + 1; j < students.length; j++) {
+                if (students[i].fullName.compareToIgnoreCase(students[j].fullName) > 0) {
+                    // Swap students[i] and students[j]
+                    Student2 temp = students[i];
+                    students[i] = students[j];
+                    students[j] = temp;
+                }
             }
-        });
+        }
     }
 
     // Main method to test the Student2 class and sorting functionalities
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);  // Create Scanner for user input
 
-        // ArrayList to store student records
-        ArrayList<Student2> students = new ArrayList<>();
+        // Array to store student records
+        Student2[] students = new Student2[5];
 
         // Input and create student records
         for (int i = 0; i < 5; i++) {
@@ -110,8 +110,8 @@ class Student2 {
             float cgpa = scanner.nextFloat();
             scanner.nextLine();  // Consume the newline character
 
-            // Create a new Student2 object and store it in the ArrayList
-            students.add(new Student2(name, dateOfJoining, semester, cgpa));
+            // Create a new Student2 object and store it in the array
+            students[i] = new Student2(name, dateOfJoining, semester, cgpa);
             System.out.println();  // Print a blank line for readability
         }
 
@@ -141,6 +141,7 @@ class Student2 {
         scanner.close();  // Close the scanner
     }
 }
+
 
 /* SAMPLE OUTPUT
 Enter details for Student 1:
@@ -212,65 +213,24 @@ Semester: 1
 CGPA: 8.8
 
 Registration Number: 1204
-Full Name: Daisy Miller
-Date of Joining: 22/8/2012
-Semester: 4
-CGPA: 9.0
-
-Registration Number: 1201
-Full Name: Alice Johnson
-Date of Joining: 15/4/2012
-Semester: 2
-CGPA: 8.5
-
-Registration Number: 1205
-Full Name: Eva Green
-Date of Joining: 30/7/2012
-Semester: 2
-CGPA: 8.2
-
-Registration Number: 1202
-Full Name: Bob Smith
-Date of Joining: 20/5/2012
-Semester: 3
-CGPA: 7.9
-
-Students sorted by Name:
-Registration Number: 1203
-Full Name: Charlie Brown
-Date of Joining: 10/1/2012
-Semester: 1
-CGPA: 8.8
-
-Registration Number: 1201
-Full Name: Alice Johnson
-Date of Joining: 15/4/2012
-Semester: 2
-CGPA: 8.5
-
-Registration Number: 1205
-Full Name: Eva Green
-Date of Joining: 30/7/2012
-Semester: 2
-CGPA: 8.2
-
-Registration Number: 1204
-Full Name: Daisy Miller
-Date of Joining: 22/8/2012
-Semester: 4
-CGPA: 9.0
-
-Registration
+Full Name: 
 
 */
 /* EXPLANATION
-Class Name: Changed to Student2 to meet the requirement.
-Sorting Methods:
-sortBySemesterAndCGPA(): Sorts students first by semester and then by CGPA in descending order if semesters are the same.
-sortByName(): Sorts students alphabetically by their names in a case-insensitive manner.
+Student2 Class:
+
+Instance Variables: Holds information about each student.
+Constructor: Initializes the student record and calculates the registration number.
+Methods:
+displayRecord(): Prints the student's details.
+sortBySemesterAndCGPA(): Sorts an array of students first by semester and then by CGPA in descending order.
+sortByName(): Sorts an array of students alphabetically by name in a case-insensitive manner.
+
 Main Method:
-Collects details for 5 students.
-Displays the details of all students.
+
+Prompts the user for details of 5 students.
+Stores these details in an array.
+Displays all student records.
 Sorts and displays students by semester and CGPA.
 Sorts and displays students by name.
 */
