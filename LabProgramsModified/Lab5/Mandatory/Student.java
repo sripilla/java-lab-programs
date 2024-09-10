@@ -12,8 +12,6 @@ c) List all the student names containing a particular sub string.
 d) Sort the student alphabetically
 
 */
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Scanner;
 
 // Define the Student class
@@ -46,7 +44,7 @@ class Student {
     }
 
     // Static method to list student names containing a particular substring
-    public static void listNamesContainingSubstring(ArrayList<Student> students, String substring) {
+    public static void listNamesContainingSubstring(Student[] students, String substring) {
         System.out.println("Students containing \"" + substring + "\":");
         for (Student student : students) {
             if (student.studentName.contains(substring)) {
@@ -55,12 +53,28 @@ class Student {
         }
     }
 
-    // Static method to sort students alphabetically by name
-    public static void sortStudentsAlphabetically(ArrayList<Student> students) {
-        Collections.sort(students, (s1, s2) -> s1.studentName.compareToIgnoreCase(s2.studentName));
+    // Static method to sort students alphabetically by name (Bubble Sort algorithm)
+    public static void sortStudentsAlphabetically(Student[] students) {
+        int n = students.length;
+        Student temp;  // Temporary variable for swapping
+
+        // Bubble Sort algorithm to sort students by name
+        for (int i = 0; i < n - 1; i++) {
+            for (int j = 0; j < n - i - 1; j++) {
+                // Compare names in case-insensitive manner
+                if (students[j].studentName.compareToIgnoreCase(students[j + 1].studentName) > 0) {
+                    // Swap students[j] and students[j + 1] if they are in the wrong order
+                    temp = students[j];
+                    students[j] = students[j + 1];
+                    students[j + 1] = temp;
+                }
+            }
+        }
+
+        // Display the sorted students
         System.out.println("Students sorted alphabetically:");
-        for (Student student : students) {
-            System.out.println(student.studentName);
+        for (int i = 0; i < students.length; i++) {
+            System.out.println(students[i].studentName);
         }
     }
 
@@ -75,14 +89,14 @@ class Student {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);  // Create Scanner for user input
 
-        // Create an ArrayList to store Student objects
-        ArrayList<Student> students = new ArrayList<>();
+        // Create an array to store 5 Student objects
+        Student[] students = new Student[5];
 
         // Prompt the user to enter details for 5 students
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < students.length; i++) {
             System.out.print("Enter the name of student " + (i + 1) + ": ");
             String name = scanner.nextLine();
-            students.add(new Student(name));
+            students[i] = new Student(name);
         }
 
         // Display details for each student
@@ -104,58 +118,78 @@ class Student {
     }
 }
 
+
 /* SAMPLE OUTPUT
-Enter the name of student 1: John Doe
-Enter the name of student 2: Jane Smith
-Enter the name of student 3: Alice Johnson
-Enter the name of student 4: Bob Brown
-Enter the name of student 5: Charlie White
+
+User Input: User Input:
+Enter the name of student 1: john doe
+
+Enter the name of student 2: alice smith
+
+Enter the name of student 3: bob johnson
+
+Enter the name of student 4: mary jane
+
+Enter the name of student 5: lucas white
+
+Enter a substring to search for in student names: jo
+
+OUTPUT:
+Enter the name of student 1: john doe
+Enter the name of student 2: alice smith
+Enter the name of student 3: bob johnson
+Enter the name of student 4: mary jane
+Enter the name of student 5: lucas white
 
 Student Details:
-Student Name: John Doe
+Student Name: john doe
 Initials: JD
-Name without Whitespace: JohnDoe
+Name without Whitespace: johndoe
 
-Student Name: Jane Smith
-Initials: JS
-Name without Whitespace: JaneSmith
+Student Name: alice smith
+Initials: AS
+Name without Whitespace: alicesmith
 
-Student Name: Alice Johnson
-Initials: AJ
-Name without Whitespace: AliceJohnson
+Student Name: bob johnson
+Initials: BJ
+Name without Whitespace: bobjohnson
 
-Student Name: Bob Brown
-Initials: BB
-Name without Whitespace: BobBrown
+Student Name: mary jane
+Initials: MJ
+Name without Whitespace: maryjane
 
-Student Name: Charlie White
-Initials: CW
-Name without Whitespace: CharlieWhite
+Student Name: lucas white
+Initials: LW
+Name without Whitespace: lucaswhite
 
-Enter a substring to search for in student names: Smith
-Students containing "Smith":
-Jane Smith
+Enter a substring to search for in student names: jo
+Students containing "jo":
+john doe
+bob johnson
+lucas white
 
 Students sorted alphabetically:
-Alice Johnson
-Bob Brown
-Charlie White
-Jane Smith
-John Doe
+alice smith
+bob johnson
+john doe
+lucas white
+mary jane
 
 */
 
 /* EXPLANATION
-Instance Variable: studentName stores the name of the student.
-Constructor: Initializes the student's name.
-extractInitials(): Extracts and returns the initials of the student’s name.
-removeWhitespace(): Removes all whitespace from the student’s name.
-listNamesContainingSubstring(): A static method that prints names containing a given substring.
-sortStudentsAlphabetically(): A static method that sorts the list of students alphabetically and displays them.
-displayStudentDetails(): Displays the student's name, initials, and name without whitespace.
+Student Class:
+
+extractInitials(): Extracts the initials from the student's name.
+removeWhitespace(): Removes all whitespace characters from the student's name.
+listNamesContainingSubstring(): Lists students whose names contain the specified substring.
+sortStudentsAlphabetically(): Sorts students alphabetically using the Bubble Sort algorithm.
+
 Main Method:
-Collects names for 5 students from user input.
-Displays each student's details.
-Searches for and lists names containing a specified substring.
+
+Uses a basic array Student[] to store the student objects.
+Takes input for student names.
+Displays student details.
+Lists names containing a specific substring.
 Sorts and displays students alphabetically.
 */
