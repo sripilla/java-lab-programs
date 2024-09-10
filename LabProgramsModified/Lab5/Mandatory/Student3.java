@@ -7,12 +7,8 @@ c) Change the full name in the object to name with just initials and family name
 For example, Prakash Kalingrao Aithal must be changed to P.K.Aithal and store it in the object. 
 Display modified objects.
 */
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.GregorianCalendar;
 import java.util.Scanner;
-import java.util.stream.Collectors;
 
 // Define the Student3 class
 class Student3 {
@@ -53,47 +49,54 @@ class Student3 {
     }
 
     // Method to sort students by semester and CGPA
-    public static void sortBySemesterAndCGPA(ArrayList<Student3> students) {
-        Collections.sort(students, new Comparator<Student3>() {
-            @Override
-            public int compare(Student3 s1, Student3 s2) {
-                // First compare by semester
-                int semesterComparison = Short.compare(s1.semester, s2.semester);
-                if (semesterComparison != 0) {
-                    return semesterComparison;
+    public static void sortBySemesterAndCGPA(Student3[] students, int n) {
+        for (int i = 0; i < n - 1; i++) {
+            for (int j = i + 1; j < n; j++) {
+                if (students[i].semester > students[j].semester ||
+                    (students[i].semester == students[j].semester && students[i].cgpa < students[j].cgpa)) {
+                    // Swap students[i] and students[j]
+                    Student3 temp = students[i];
+                    students[i] = students[j];
+                    students[j] = temp;
                 }
-                // If semesters are the same, compare by CGPA
-                return Float.compare(s2.cgpa, s1.cgpa);  // Descending order for CGPA
             }
-        });
+        }
     }
 
     // Method to sort students by name
-    public static void sortByName(ArrayList<Student3> students) {
-        Collections.sort(students, new Comparator<Student3>() {
-            @Override
-            public int compare(Student3 s1, Student3 s2) {
-                return s1.fullName.compareToIgnoreCase(s2.fullName);  // Alphabetical order (case insensitive)
+    public static void sortByName(Student3[] students, int n) {
+        for (int i = 0; i < n - 1; i++) {
+            for (int j = i + 1; j < n; j++) {
+                if (students[i].fullName.compareToIgnoreCase(students[j].fullName) > 0) {
+                    // Swap students[i] and students[j]
+                    Student3 temp = students[i];
+                    students[i] = students[j];
+                    students[j] = temp;
+                }
             }
-        });
+        }
     }
 
     // Method to list students whose names start with a particular character
-    public static void listByStartingCharacter(ArrayList<Student3> students, char ch) {
+    public static void listByStartingCharacter(Student3[] students, int n, char ch) {
         System.out.println("Students whose names start with '" + ch + "':");
-        students.stream()
-                .filter(s -> s.fullName.toUpperCase().startsWith(String.valueOf(ch).toUpperCase()))
-                .forEach(Student3::displayRecord);
-        System.out.println();  // Print a blank line for readability
+        for (int i = 0; i < n; i++) {
+            if (students[i].fullName.toUpperCase().startsWith(String.valueOf(ch).toUpperCase())) {
+                students[i].displayRecord();
+                System.out.println();  // Print a blank line for readability
+            }
+        }
     }
 
     // Method to list students whose names contain a particular substring
-    public static void listBySubstring(ArrayList<Student3> students, String substring) {
+    public static void listBySubstring(Student3[] students, int n, String substring) {
         System.out.println("Students whose names contain '" + substring + "':");
-        students.stream()
-                .filter(s -> s.fullName.toUpperCase().contains(substring.toUpperCase()))
-                .forEach(Student3::displayRecord);
-        System.out.println();  // Print a blank line for readability
+        for (int i = 0; i < n; i++) {
+            if (students[i].fullName.toUpperCase().contains(substring.toUpperCase())) {
+                students[i].displayRecord();
+                System.out.println();  // Print a blank line for readability
+            }
+        }
     }
 
     // Method to change the full name to initials and family name format
@@ -112,8 +115,8 @@ class Student3 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);  // Create Scanner for user input
 
-        // ArrayList to store student records
-        ArrayList<Student3> students = new ArrayList<>();
+        // Array to store student records
+        Student3[] students = new Student3[5];
 
         // Input and create student records
         for (int i = 0; i < 5; i++) {
@@ -141,8 +144,8 @@ class Student3 {
             float cgpa = scanner.nextFloat();
             scanner.nextLine();  // Consume the newline character
 
-            // Create a new Student3 object and store it in the ArrayList
-            students.add(new Student3(name, dateOfJoining, semester, cgpa));
+            // Create a new Student3 object and store it in the array
+            students[i] = new Student3(name, dateOfJoining, semester, cgpa);
             System.out.println();  // Print a blank line for readability
         }
 
@@ -155,7 +158,7 @@ class Student3 {
 
         // Sort and display students by semester and CGPA
         System.out.println("Students sorted by Semester and CGPA:");
-        sortBySemesterAndCGPA(students);
+        sortBySemesterAndCGPA(students, students.length);
         for (Student3 student : students) {
             student.displayRecord();
             System.out.println();  // Print a blank line between records
@@ -163,7 +166,7 @@ class Student3 {
 
         // Sort and display students by name
         System.out.println("Students sorted by Name:");
-        sortByName(students);
+        sortByName(students, students.length);
         for (Student3 student : students) {
             student.displayRecord();
             System.out.println();  // Print a blank line between records
@@ -172,12 +175,12 @@ class Student3 {
         // List and display students whose names start with a particular character
         System.out.print("Enter a character to filter names by starting letter: ");
         char startChar = scanner.nextLine().charAt(0);
-        listByStartingCharacter(students, startChar);
+        listByStartingCharacter(students, students.length, startChar);
 
         // List and display students whose names contain a particular substring
         System.out.print("Enter a substring to filter names by containing text: ");
         String substring = scanner.nextLine();
-        listBySubstring(students, substring);
+        listBySubstring(students, students.length, substring);
 
         // Convert full names to initials and family name and display modified records
         System.out.println("Modified Student Records with Initials and Family Name:");
@@ -191,7 +194,7 @@ class Student3 {
     }
 }
 
-/*  SAMPLE OUTPUT 
+/* SAMPLE OUTPUT 
 Enter details for Student 1:
 Full Name: Alice Johnson
 Date of Joining (YYYY MM DD): 2012 3 15
@@ -237,7 +240,10 @@ CGPA: 7.9
 
 Registration Number: 1203
 Full Name: Charlie Brown
-Date of Joining: 10
+Date of Joining: 10/1
+
+
+
 */
 /* EXPLANATION
 Class Name: Updated to Student3.
