@@ -2,6 +2,8 @@
 with a comma every third digit from the right.
 eg., Input String: "1234567"
     Output String: "1,234,567" */
+import java.util.Scanner;
+
 public class NumberFormatter {
 
     // Method to format a numeric string with commas
@@ -36,7 +38,7 @@ public class NumberFormatter {
     // Main method to test the formatNumber method
     public static void main(String[] args) {
         // Create a Scanner for user input
-        java.util.Scanner scanner = new java.util.Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
 
         // Prompt the user for input
         System.out.print("Enter a number string to format: ");
