@@ -1,4 +1,6 @@
-/* "Person" class with private instance variables for the person's name and birth date. Add appropriate accessor methods for these variables. Then create a subclass "CollegeGraduate" with private instance variables for the student's GPA and year of graduation and appropriate accessors for these variables. Include appropriate constructors for your classes. Then create a class with main() methods that demonstrates your classes.*/
+/* "Person" class with private instance variables for the person's name and birth date. Add appropriate accessor methods for these variables. 
+Then create a subclass "CollegeGraduate" with private instance variables for the student's GPA and year of graduation and appropriate accessors 
+for these variables. Include appropriate constructors for your classes. Then create a class with main() methods that demonstrates your classes.*/
 // Base class Person
 class Person {
     // Private instance variables
