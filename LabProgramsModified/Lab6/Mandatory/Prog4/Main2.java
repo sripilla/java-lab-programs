@@ -1,3 +1,10 @@
+/*Create a Building class and two subclasses, House and School. The Building class
+contains fields for square footage and stories. The House class contains additional
+fields for number of bedrooms and baths. The School class contains additional fields
+for number of classrooms and grade level (for example, elementary or junior high).
+All the classes contain appropriate get and set methods. Create a main method that
+declares objects of each type.*/
+
 // Base class Building
 class Building {
     // Private instance variables for square footage and stories
