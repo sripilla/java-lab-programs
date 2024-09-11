@@ -1,4 +1,6 @@
-/*Create an abstract class Figure with abstract method area and two integer dimensions. Create three more classes Rectangle, Triangle and Square which extend Figure and implement the area method. Show how the area can be computed dynamically during runtime for Rectangle, Square and Triangle to achieve dynamic polymorphism. (Use the reference of Figure class to call the three different area methods) */
+/*Create an abstract class Figure with abstract method area and two integer dimensions. Create three more classes Rectangle, Triangle and Square 
+which extend Figure and implement the area method. Show how the area can be computed dynamically during runtime for Rectangle, Square and Triangle 
+to achieve dynamic polymorphism. (Use the reference of Figure class to call the three different area methods) */
 
 // Abstract class Figure
 abstract class Figure {
