@@ -1,4 +1,15 @@
-/*To the already defined STUDENT4 class, add two subclasses. ScienceStudent and ArtsStudent. Add a private data member practicalMarks (int): to the ScienceStudent class to represent the marks obtained by the student in the practical subject. The ScienceStudent class should override the compute() method to include the practical marks in the total marks and average marks calculation. The ScienceStudent class should provide a method displayPracticalMarks() to display the practical marks obtained by the science student. Add the private data member electiveSubject(String): to the ArtStudent class to represent the elective subject chosen by the arts student. Also add appropriate constructors to the subclasses. In the Main class, create objects of STUDENT, scienceStudent and ArtsStudent, and demonstrate the keyword 'super' and other functionalities of the classes by assigning values, computing marks, and displaying the information of the students. Also demonstrate dynamic polymorphism. */
+/*To the already defined STUDENT4 class, add two subclasses. ScienceStudent and ArtsStudent. 
+Add a private data member practicalMarks (int): to the ScienceStudent class to represent the marks obtained 
+by the student in the practical subject.
+The ScienceStudent class should override the compute() method to include the practical marks in the total marks 
+and average marks calculation.
+The ScienceStudent class should provide a method displayPracticalMarks() to display the practical marks obtained 
+by the science student. 
+Add the private data member electiveSubject(String): to the ArtStudent class to represent the elective subject 
+chosen by the arts student. Also add appropriate constructors to the subclasses. 
+In the Main class, create objects of STUDENT, scienceStudent and ArtsStudent, and demonstrate the keyword 'super' 
+and other functionalities of the classes by assigning values, computing marks, and displaying the information of the students. 
+Also demonstrate dynamic polymorphism. */
 
 // Base class STUDENT4
 class Student4 {
