@@ -1,0 +1,103 @@
+1. How many super classes can be inherited by a subclass?
+a: In Java, a subclass can inherit from only one superclass. This is known as single inheritance. However, a subclass can implement multiple interfaces, which allows it to inherit behavior from multiple sources.
+
+2. Which of these keywords must be used to monitor for exceptions? 
+   try catch finally throw
+
+To monitor for exceptions in Java, the keywords you would use are try, catch, and finally. Here’s a brief overview of each:
+
+try: This block is used to wrap the code that might throw an exception. If an exception occurs within this block, it will be caught by the corresponding catch block.
+
+catch: This block is used to handle the exception. You can have multiple catch blocks to handle different types of exceptions that might be thrown in the try block.
+
+finally: This block is optional and will execute after the try and catch blocks, regardless of whether an exception was thrown or not. It is commonly used for cleanup activities, like closing resources.
+
+throw: This keyword is used to explicitly throw an exception, but it is not used to monitor for exceptions. Instead, it is used when you want to signal that an exception has occurred.
+
+3. What is the keyword used for declaring a constant variable? 
+   static constant final const
+
+In Java, the keyword used for declaring a constant variable is final. When you declare a variable as final, its value cannot be changed once it has been assigned.
+
+final int MAX_VALUE = 100;
+
+The static keyword can also be used in conjunction with final if you want the constant to belong to the class rather than an instance of the class. This is common practice for constants.
+
+const is not a keyword in Java. It's used in other programming languages like C and C++.
+
+While you can use static final together (e.g., static final int MAX_VALUE = 100;), final alone is sufficient to declare a constant variable.
+
+4. What are the rules to define a constructor?
+
+
+A. The constructor should have the same name as the class and have a void as the return type.
+
+B. 	The constructor may not have the same name as the class and has no return type even if void.
+
+c. The constructor should have, the same name as the class and have no return type even if void.
+
+D. The constructor may not have the same name as the class but should have a return type
+
+ans: The correct rule for defining a constructor in Java is:
+
+C. The constructor should have the same name as the class and have no return type even if void.
+
+5. what will be the output of the following code snippet?
+class exception_handling
+{
+   public static void main(String args[]) {
+        try 
+           {
+              System.out.println("Exception" + " " + 1/0);
+           } catch(ArithmeticException e)
+           {
+              System.out.println("handled");
+           }
+   }
+}
+
+ans: handled
+
+Explanation:
+The try block contains the statement System.out.println("Exception" + " " + 1/0);.
+The expression 1/0 attempts to divide by zero, which triggers an ArithmeticException.
+Since an exception occurs, control is transferred to the catch block that is specifically designed to handle ArithmeticException.
+The catch block executes and prints handled.
+
+6. Suppose a and b are two integer variables. How do you test whether exactly one of them is zero? Identify the correct statement.
+( a == 0 && b != 0 ) &&( b == 0
+&& a != 0 )
+( a == 0 && b != 0 ) || ( b == 0
+&& a != 0 )
+( a == 0 || b != 0 ) || ( b == 0
+|| a != 0 )
+( a == 0 || b != 0 ) && ( b == 0
+&& a != 0 )
+
+ans: To test whether exactly one of the integer variables a or b is zero, the correct statement is:
+
+( a == 0 && b != 0 ) || ( b == 0 && a != 0 )
+
+7. What is the minimum number of argument/s that can be passed to “public static void main(String[] args)”?
+
+The minimum number of arguments that can be passed to the public static void main(String[] args) method in Java is zero.
+
+8. What will be stored in the String sub after executing the following statement ?
+String sub = "Welcome".substring(1,5);
+
+"elco"
+
+9. What will s1 contain after executing the following lines of Java code?
+String s1 = "one";
+s1.concat("two");
+
+ans: "one"
+
+In Java, String objects are immutable, meaning that once a String object is created, its value cannot be changed.
+The concat() method creates a new String object that is the result of appending the specified string to the original string but does not modify the original string itself.
+Since s1.concat("two") creates a new String but does not assign it back to s1, the original value of s1 remains unchanged.
+
+s1 = s1.concat("two");
+//"onetwo"
+
+

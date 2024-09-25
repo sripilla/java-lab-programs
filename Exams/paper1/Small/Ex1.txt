@@ -1,0 +1,27 @@
+Identify the correct restriction on static methods
+
+A) they must access only static data
+b) they can only call other static methods
+C) they cannot refer to this or super
+D) they can refer to this or super
+E) they can call other methods present in the class to which  it belongs to 
+
+ans: 
+The correct restrictions on static methods are:
+
+A) they must access only static data: Static methods can only directly access static variables and methods of the class. They cannot access instance variables or instance methods without an object reference.
+
+C) they cannot refer to this or super: Static methods do not belong to any instance of a class, so they cannot refer to this or super, which are used to refer to the current instance or the parent class instance, respectively.
+
+Summary of Correct Restrictions:
+A is correct.
+C is correct.
+Other Options:
+B) they can only call other static methods: This is not entirely correct; static methods can call both static and instance methods (provided they have an instance of the class).
+
+D) they can refer to this or super: This is incorrect as mentioned.
+
+E) they can call other methods present in the class to which it belongs to: While static methods can call other static methods, they can only call instance methods if an instance of the class is created.
+
+Conclusion:
+The correct restrictions are A and C.
