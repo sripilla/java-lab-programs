@@ -1,0 +1,36 @@
+First Program Terminal COmmands:
+1. cd /Users/subbaraopilla/Documents/FirstProgram
+2. javac -d out src/com/course/structure/*.java src/Main.java
+3. java -cp out Main
+
+
+FileName: JavaPackage.sublime-build
+
+{
+    "shell_cmd": "javac -d out -sourcepath src src/Main.java src/com/course/structure/*.java && java -cp out Main",
+    "working_dir": "/Users/subbaraopilla/Documents/FirstProgram",
+    "selector": "source.java",
+    "variants":
+    [
+        {
+            "name": "Run",
+            "shell_cmd": "java -cp out Main",
+            "working_dir": "/Users/subbaraopilla/Documents/FirstProgram"
+        }
+    ]
+}
+
+
+
+
+
+
+JAVA
+
+{
+    "shell_cmd": "javac \"$file\" && java \"${file_base_name}\"",
+    "working_dir": "$file_path",
+    "selector": "source.java"
+}
+
+Name: Java.sublime-build

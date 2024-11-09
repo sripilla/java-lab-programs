@@ -1,0 +1,26 @@
+SecondProgram Terminal commands:
+
+1. cd /Users/subbaraopilla/Documents/SecondProgram
+2. javac -d out src/myPackages/p1/*.java src/Main.java 
+3. java -cp out Main
+
+
+FileName: JavaPackage.sublime-build
+
+{
+    "shell_cmd": "javac -d out -sourcepath src src/Main.java src/myPackages/p1/*.java && java -cp out Main",
+    "working_dir": "/Users/subbaraopilla/Documents/SecondProgram",
+    "selector": "source.java",
+    "variants":
+    [
+        {
+            "name": "Run",
+            "shell_cmd": "java -cp out Main",
+            "working_dir": "/Users/subbaraopilla/Documents/SecondProgram"
+        }
+    ]
+}
+
+
+
+
