@@ -1,3 +1,6 @@
+/*Define a class CurrentDate with data members day, month and year. Define a method createDate() to create date object by reading values from keyboard. Throw a user defined exception by name InvalidDayException if the day is invalid and InvalidMonthException if month is found invalid and display current date if the date
+is valid. Write a test program to illustrate the functionality. */
+
 // Custom Exception for Invalid Day
 class InvalidDayException extends Exception {
     public InvalidDayException(String message) {

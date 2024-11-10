@@ -1,3 +1,5 @@
+/*Design a stack class. Provide your own stack exceptions namely Push Exception and Pop Exception, which throw exceptions when the stack is full and when the stack isempty respectively. Show the usage of these exceptions in handling a stack object in the main. */
+
 // PushException: Thrown when trying to push onto a full stack
 class PushException extends Exception {
     public PushException(String message) {
