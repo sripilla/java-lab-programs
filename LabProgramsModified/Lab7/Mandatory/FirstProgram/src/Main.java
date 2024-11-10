@@ -1,3 +1,6 @@
+/* Design a Building class as in Lab 6, program no. 2. Place the Building, House, and
+School classes in a package named com.course.structure. Create a main method that
+declares objects of each type and uses the package.*/
 import com.course.structure.House;
 import com.course.structure.School;
 
